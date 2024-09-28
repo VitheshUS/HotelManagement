@@ -1,1 +1,32 @@
-<p>view-rooms works!</p>
+<div>
+    <div>
+        Total Rooms: {{enquiry.totalRooms}}<br/>
+        Booked Rooms: {{enquiry.bookedRooms}}<br/>
+        Available Rooms: {{enquiry.availableRooms}}<br/>
+    </div>
+    
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Room Type</th>
+                    <th>Amenities</th>
+                    <th>Cost</th>
+                    <th>Photo</th>
+                    <th>Check-in Date</th>
+                    <th>Check-out Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let room of roomList">
+                    <td>{{ room.roomType }}</td>
+                    <td>{{ room.amenities }}</td>
+                    <td>{{ room.cost | currency }}</td>
+                    <td><img [src]="room.photo" alt="Room photo" style="width: 100px; height: auto;"></td>
+                    <td>{{ room.checkIn | date }}</td>
+                    <td>{{ room.checkout | date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

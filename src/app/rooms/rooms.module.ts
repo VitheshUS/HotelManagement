@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ViewRoomsComponent } from './view-rooms/view-rooms.component';
 
 
-
 @NgModule({
   declarations: [
     ViewRoomsComponent
