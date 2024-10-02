@@ -7,6 +7,7 @@ import { Room } from '../../rooms';
   styleUrl: './room-table.component.scss'
 })
 export class RoomTableComponent {
+
     @Input() rooms!:Room[];
 
     @Output() selectedRoom=new EventEmitter<Room>();

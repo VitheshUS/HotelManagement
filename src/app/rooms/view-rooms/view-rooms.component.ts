@@ -9,6 +9,7 @@ import { Room, RoomsEnquiry } from '../rooms';
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ViewRoomsComponent implements OnInit{
+  
   enquiry!:RoomsEnquiry;
   roomList!:Room[];
 
