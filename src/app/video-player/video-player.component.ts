@@ -1,11 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import 'jb-videojs-hls-quality-selector';
 import videojs from 'video.js';
-import 'videojs-contrib-quality-levels';
-import 'videojs-hls-quality-selector';
-
-// declare var require: any;
-// require('videojs-contrib-quality-levels');
-// require('videojs-hls-quality-selector');
 
 @Component({
   selector: 'app-video-player',
@@ -37,8 +32,9 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
     this.player = videojs('my-video', options, function onPlayerReady() {
       console.log('Player ready');
       var myPlayer = this, id = myPlayer.id();
-      //myPlayer.hlsQualitySelector();
-
+    });
+    this.player.hlsQualitySelector({
+      displayCurrentQuality: true,
     });
   }
 
