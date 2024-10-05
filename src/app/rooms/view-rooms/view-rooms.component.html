@@ -1,1 +1,13 @@
-<p>view-rooms works!</p>
+<div>
+    <div>
+        Total Rooms: {{enquiry.totalRooms}}<br/>
+        Booked Rooms: {{enquiry.bookedRooms}}<br/>
+        Available Rooms: {{enquiry.availableRooms}}<br/>
+    </div>
+    <app-room-table 
+    [rooms]="roomList"
+    (selectedRoom)="selectedRoom($event)"
+    >
+
+    </app-room-table>
+</div>

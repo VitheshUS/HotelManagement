@@ -1,0 +1,28 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Room Type</th>
+                <th>Amenities</th>
+                <th>Cost</th>
+                <th>Photo</th>
+                <th>Check-in Date</th>
+                <th>Check-out Date</th>
+                <th>Select Room</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let room of rooms">
+                <td>{{ room.roomType }}</td>
+                <td>{{ room.amenities }}</td>
+                <td>{{ room.cost | currency:"INR" }}</td>
+                <td><img [src]="room.photo" alt="Room photo" style="width: 100px; height: auto;"></td>
+                <td>{{ room.checkIn | date }}</td>
+                <td>{{ room.checkout | date }}</td>
+                <td>
+                    <button (click)="RoomSelected(room)" class="btn btn-primary">Select</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
