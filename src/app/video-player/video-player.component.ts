@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import 'jb-videojs-hls-quality-selector';
 import videojs from 'video.js';
 
@@ -8,31 +8,25 @@ import videojs from 'video.js';
   styleUrls: ['./video-player.component.scss']
 })
 
-export class VideoPlayerComponent implements OnInit, AfterViewInit {
+export class VideoPlayerComponent implements AfterViewInit,OnDestroy {
   
   public player: any;
-  
-  url = 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8';
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
   ngAfterViewInit() {
-    const options = {
-      'sources': [{
-        'src': this.url,
-        'type': 'application/x-mpegURL'
-      }
-      ],
-      // 'poster' : this.urlPoster
-    };
-    this.player = videojs('my-video', options, function onPlayerReady() {
-      console.log('Player ready');
-      var myPlayer = this, id = myPlayer.id();
-    });
+    
+    this.player = videojs('my-video');
+    this.player.loadMedia({
+      artist: 'Disney',
+      album: 'Oceans',
+      title: 'Oceans',
+      description: 'Journey in to the depths ... and race with dolphins at play.',
+      poster: 'https://vjs.zencdn.net/v/oceans.png',
+      src: [{
+        src: 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8',
+        type: 'application/x-mpegURL'
+      }]
+    })
+    this.player.currentTime(120);
     this.player.hlsQualitySelector({
       displayCurrentQuality: true,
     });
